@@ -22,7 +22,7 @@ A real-time stock market tracker built with **React** and **Flask**. This applic
 ---
 
 ## Project Structure
-
+```bash
 stock-market-tracker/
 ├── backend/ # Flask server
 │ ├── app.py # API endpoints
@@ -32,7 +32,7 @@ stock-market-tracker/
 │ ├── src/ # React components
 │ ├── package.json # Node.js dependencies
 ├── README.md # Project documentation
-
+```
 ## ⚙️ Installation & Setup
 
 ### Prerequisites
