@@ -1,0 +1,440 @@
+/* Base Styles */
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  font-family: 'Roboto', sans-serif;
+  background-color: #f9fafb;
+  color: #333;
+  line-height: 1.6;
+}
+
+.app {
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+}
+
+/* Header Styles */
+.header {
+  background-color: #1e293b;
+  color: white;
+  padding: 1rem 2rem;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+.header h1 {
+  font-size: 1.8rem;
+  font-weight: 700;
+}
+
+.market-status {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+}
+
+.market-time {
+  font-size: 0.9rem;
+  opacity: 0.8;
+}
+
+.market-indicator {
+  display: inline-block;
+  padding: 0.25rem 0.75rem;
+  border-radius: 1rem;
+  font-size: 0.8rem;
+  font-weight: 500;
+}
+
+.online {
+  background-color: #0ecb81;
+  color: white;
+}
+
+.offline {
+  background-color: #f6465d;
+  color: white;
+}
+
+/* Main Content Styles */
+.main-content {
+  display: flex;
+  flex: 1;
+  padding: 1rem;
+  gap: 1rem;
+}
+
+.sidebar {
+  width: 320px;
+  background-color: white;
+  border-radius: 8px;
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
+  display: flex;
+  flex-direction: column;
+}
+
+.chart-container {
+  flex: 1;
+  background-color: white;
+  border-radius: 8px;
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
+  padding: 1.5rem;
+  display: flex;
+  flex-direction: column;
+}
+
+/* Search Bar Styles */
+.search-container {
+  padding: 1rem;
+  position: relative;
+}
+
+.search-input-wrapper {
+  position: relative;
+}
+
+.search-input {
+  width: 100%;
+  padding: 0.75rem 1rem;
+  border: 1px solid #e2e8f0;
+  border-radius: 8px;
+  font-size: 1rem;
+  outline: none;
+  transition: border-color 0.2s;
+}
+
+.search-input:focus {
+  border-color: #3b82f6;
+}
+
+.search-loader {
+  position: absolute;
+  right: 1rem;
+  top: 50%;
+  transform: translateY(-50%);
+  width: 16px;
+  height: 16px;
+  border: 2px solid #e2e8f0;
+  border-top-color: #3b82f6;
+  border-radius: 50%;
+  animation: spin 1s linear infinite;
+}
+
+@keyframes spin {
+  to {
+    transform: translateY(-50%) rotate(360deg);
+  }
+}
+
+.search-results {
+  position: absolute;
+  top: 100%;
+  left: 0;
+  right: 0;
+  margin: 0.25rem 1rem;
+  background-color: white;
+  border-radius: 8px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+  max-height: 300px;
+  overflow-y: auto;
+  z-index: 10;
+}
+
+.search-result-item {
+  padding: 0.75rem 1rem;
+  cursor: pointer;
+  display: flex;
+  flex-direction: column;
+  border-bottom: 1px solid #f1f5f9;
+}
+
+.search-result-item:last-child {
+  border-bottom: none;
+}
+
+.search-result-item:hover {
+  background-color: #f1f5f9;
+}
+
+.result-symbol {
+  font-weight: 600;
+  font-size: 0.9rem;
+}
+
+.result-name {
+  font-size: 0.8rem;
+  color: #64748b;
+}
+
+.no-results {
+  padding: 0.75rem 1rem;
+  color: #64748b;
+  font-size: 0.9rem;
+}
+
+/* Stock List Styles */
+.stock-list {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+}
+
+.stock-list h2 {
+  padding: 0 1rem;
+  margin-bottom: 0.5rem;
+  font-size: 1.2rem;
+  color: #1e293b;
+}
+
+.stock-list ul {
+  list-style: none;
+  flex: 1;
+  overflow-y: auto;
+}
+
+.stock-item {
+  padding: 1rem;
+  border-bottom: 1px solid #f1f5f9;
+  cursor: pointer;
+  display: flex;
+  justify-content: space-between;
+  position: relative;
+  transition: background-color 0.2s;
+}
+
+.stock-item:hover {
+  background-color: #f1f5f9;
+}
+
+.stock-item.selected {
+  background-color: #eff6ff;
+  border-left: 4px solid #3b82f6;
+}
+
+.stock-info {
+  display: flex;
+  flex-direction: column;
+}
+
+.stock-symbol {
+  font-weight: 600;
+  font-size: 1rem;
+}
+
+.stock-name {
+  font-size: 0.8rem;
+  color: #64748b;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  max-width: 150px;
+}
+
+.stock-price-container {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-end;
+}
+
+.stock-price {
+  font-weight: 600;
+  font-size: 1rem;
+}
+
+.stock-change {
+  font-size: 0.8rem;
+}
+
+.stock-change.positive {
+  color: #0ecb81;
+}
+
+.stock-change.negative {
+  color: #f6465d;
+}
+
+.stock-change.neutral {
+  color: #64748b;
+}
+
+.remove-btn {
+  position: absolute;
+  top: 0.5rem;
+  right: 0.5rem;
+  width: 20px;
+  height: 20px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 1rem;
+  color: #64748b;
+  background: none;
+  border: none;
+  border-radius: 50%;
+  cursor: pointer;
+  opacity: 0;
+  transition: opacity 0.2s, background-color 0.2s;
+}
+
+.stock-item:hover .remove-btn {
+  opacity: 1;
+}
+
+.remove-btn:hover {
+  background-color: rgba(0, 0, 0, 0.05);
+  color: #f6465d;
+}
+
+.empty-stocks {
+  padding: 2rem 1rem;
+  color: #64748b;
+  text-align: center;
+  font-size: 0.9rem;
+}
+
+/* Chart Styles */
+.stock-chart {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+}
+
+.chart-header {
+  margin-bottom: 1.5rem;
+}
+
+.chart-stock-info {
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+}
+
+.chart-stock-info h2 {
+  font-size: 1.5rem;
+  font-weight: 600;
+}
+
+.chart-price-info {
+  display: flex;
+  gap: 1rem;
+  align-items: center;
+}
+
+.chart-price {
+  font-size: 1.2rem;
+  font-weight: 600;
+}
+
+.chart-change {
+  font-size: 1rem;
+}
+
+.chart-change.positive {
+  color: #0ecb81;
+}
+
+.chart-change.negative {
+  color: #f6465d;
+}
+
+.chart-change.neutral {
+  color: #64748b;
+}
+
+.chart-wrapper {
+  flex: 1;
+}
+
+.no-selection {
+  display: flex;
+  flex: 1;
+  align-items: center;
+  justify-content: center;
+  color: #64748b;
+  font-size: 1.1rem;
+}
+
+.no-stock-selected {
+  display: flex;
+  flex: 1;
+  align-items: center;
+  justify-content: center;
+  color: #64748b;
+  font-size: 1.1rem;
+}
+
+/* Loading and Error Styles */
+.loading, 
+.error {
+  padding: 2rem;
+  text-align: center;
+  color: #64748b;
+}
+
+.error {
+  color: #f6465d;
+}
+
+/* Responsive Styles */
+@media (max-width: 768px) {
+  .main-content {
+    flex-direction: column;
+  }
+  
+  .sidebar {
+    width: 100%;
+    max-height: 300px;
+  }
+  
+  .chart-container {
+    min-height: 450px;
+  }
+}
+.stock-list ul {
+  /* Keep your existing styles and add/modify these: */
+  max-height: 400px; /* Set maximum height for scrollable area */
+  overflow-y: auto;
+  scrollbar-width: thin; /* For Firefox */
+  scrollbar-color: #cbd5e1 #f1f5f9; /* For Firefox */
+  padding-right: 4px; /* Give some space for the scrollbar */
+}
+
+/* Custom scrollbar styling for Webkit browsers (Chrome, Safari, Edge) */
+.stock-list ul::-webkit-scrollbar {
+  width: 6px;
+}
+
+.stock-list ul::-webkit-scrollbar-track {
+  background: #f1f5f9;
+  border-radius: 4px;
+}
+
+.stock-list ul::-webkit-scrollbar-thumb {
+  background-color: #cbd5e1;
+  border-radius: 4px;
+}
+
+.stock-list ul::-webkit-scrollbar-thumb:hover {
+  background-color: #94a3b8;
+}
+
+.search-result-item.in-watchlist {
+  background-color: #f8fafc;
+}
+
+.watchlist-badge {
+  display: inline-block;
+  margin-left: 8px;
+  padding: 2px 6px;
+  background-color: #e2e8f0;
+  border-radius: 4px;
+  font-size: 0.7rem;
+  color: #475569;
+}
